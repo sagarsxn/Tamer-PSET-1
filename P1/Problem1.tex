@@ -1,0 +1,28 @@
+\documentclass[../PSET1Tamer.tex]{subfiles}
+ 
+\begin{document} 
+\section*{Problem 1}
+
+\begin{align*}
+  \theta_p = \frac{\E[X|X<\xi_p]}{\E[X]}
+\end{align*} 
+\subsection*{(a)}
+Let 
+\begin{align*}
+  N &= \frac{1}{np}\sum_{i} X_i \mathds{1}\{X_i<\xi_p\} \\
+  D &= \frac{1}{n}\sum_{i}X_i
+\end{align*}
+Then,
+
+\begin{align*}
+  \hat{\theta}_p = \frac{\frac{1}{np}\sum_{i} X_i \mathds{1}\{X_i<\xi_p\}}{\frac{1}{n}\sum_{i}X_i} = \frac{N}{D}
+\end{align*} 
+
+
+
+\subsection*{(b)}
+\begin{align*}
+  \hat{\theta}_{N_p} = \frac{\frac{1}{np}\sum_{i} X_i \mathds{1}\{X_i<\hat{\xi}_p\}}{\frac{1}{n}\sum_{i}X_i}
+\end{align*}
+
+\end{document}

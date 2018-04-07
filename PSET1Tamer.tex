@@ -1,0 +1,148 @@
+\documentclass[11pt]{article}
+\usepackage{subfiles}
+\usepackage[margin=1in]{geometry}
+% \documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+%-------------------------------------------------------------------------------
+% FONT
+%-------------------------------------------------------------------------------
+% \usepackage{mathpazo}
+% \usepackage[cmbraces]{newtxmath}
+\usepackage{newpxmath} % math font is Palatino compatible
+% Font
+% \usepackage{palatino}
+\let\openbox\undefined
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amssymb, amsthm}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{empheq}
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage[font=sc]{caption}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\usepackage{cancel} % Oblique Strikethroughs
+\usepackage{enumitem}
+\usepackage{tikz}
+% Package used for highlighting
+\usepackage{soul}
+\usepackage{ marvosym } % lightning symbol
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes}
+\usetikzlibrary{bending}
+
+% Pushing text to the left or to the right in align
+% \makeatletter
+% \newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
+% \newcommand{\pushleft}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\hfill\fi\ignorespaces}
+% \makeatother
+
+\newenvironment{Figure}
+  {\par\smallskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand*\widefbox[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
+% Indenting equation*s and paragraphs
+%\setlength\mathindent{0pt}
+\setlength{\parindent}{0pt}
+
+% Roman numbering for Sections
+%\renewcommand{\thesection}{\Roman{section}} 
+% Multicolumns
+\usepackage{multicol}
+\setlength\columnsep{24pt}
+
+% Custom Numbering for Theorems
+\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric
+  }
+  {\endinnercustomgeneric}
+}
+\newcustomtheorem{prop}{Proposition}
+\newcustomtheorem{them}{Theorem}
+\newcustomtheorem{lemma}{Lemma}
+\newcustomtheorem{defn}{Definition}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% New Math Operators
+\DeclareMathOperator{\n1}{\frac{1}{n}\sum_{i=1}^{n}}
+\DeclareMathOperator{\i2}{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\e}{\mathcal{E}}
+\DeclareMathOperator{\ii}{i \in \mathcal{I}}
+\DeclareMathOperator{\jj}{j \in \mathcal{J}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\V}{\mathbb{V}}
+\DeclareMathOperator{\Cov}{\text{Cov}}
+\DeclareMathOperator{\Var}{\text{Var}}
+\DeclareMathOperator{\pref}{\succsim}
+\DeclareMathOperator{\preff}{\succ}
+\DeclareMathOperator*{\argminA}{arg\,min} 
+\DeclareMathOperator*{\argmaxA}{arg\,max} 
+\DeclareMathOperator*{\maxA}{max\;} 
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+    pdftitle={Sagar Saxena},
+    pdfpagemode=FullScreen,
+}
+%-------------------------------------------------------------------------------
+% HEADER & FOOTER
+%-------------------------------------------------------------------------------
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+\fancyhead[L]{ECON 2140}
+\fancyhead[R]{Problem Set 1}
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+%-------------------------------------------------------------------------------
+% TITLE PAGE
+%-------------------------------------------------------------------------------
+\usepackage{titling}
+\setlength{\droptitle}{-4em}
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}} % Line on Title Page
+\title{ \Large \textsc{Professor Elie Tamer\\Problem Set 1}
+        \\ 
+        \HRule{0.5pt} \\        
+        \LARGE \textbf{\uppercase{ECON 2140: Econometric Methods}}
+        \HRule{2pt} \\ [0.5cm]
+        \large \textsc{Andrea Hamaui, Robbie Minton, Giorgio Saponaro, \& Sagar Saxena}} \date{} 
+ 
+\begin{document}
+
+\maketitle 
+\vspace{-6em}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{8pt}
+\setlength{\abovedisplayshortskip}{4pt}
+\setlength{\belowdisplayshortskip}{8pt}
+\thispagestyle{empty}
+
+\subfile{P1/Problem1}
+\subfile{P2/Problem2}
+\subfile{P3/Problem3}
+\subfile{P4/Problem4}  
+        
+                                                                                   
+ 
+\end{document}
