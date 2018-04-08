@@ -4,20 +4,51 @@
 \section*{Problem 1}
 
 \begin{align*}
-  \theta_p = \frac{\E[X|X<\xi_p]}{\E[X]}
+  \theta_p = \frac{\E[X|X<\xi_p]}{\E[X]} \iff \theta_p \E[X] - \E[X|X<\xi_p] = 0
 \end{align*} 
 \subsection*{(a)}
+From theorem in class, we know that
+\begin{align}
+	\sqrt{n}(\hat{\theta}_p - \theta_p) \to^d N(0, B^{-1}\Omega_0B^{-1})
+\end{align}
+We will now derive elements $B$ and $\Omega_0$ of the asymptotic variance. \\
+
 Let 
-\begin{align*}
-  N &= \frac{1}{np}\sum_{i} X_i \mathds{1}\{X_i<\xi_p\} \\
-  D &= \frac{1}{n}\sum_{i}X_i
-\end{align*}
+\begin{align}
+	Q_n(\hat{\theta}_p) = \frac{1}{2}\left(\frac{1}{n}\sum_{i=1}^n \left[\hat{\theta}_p \cdot X_i - \frac{X_i \mathds{1}\{X_i < \xi_p\}}{p}\right]  \right)^2
+\end{align}
 Then,
+\begin{align}
+		 &\pdv{}{\hat{\theta}_p}Q_n(\hat{\theta}_p) = \frac{1}{n}\sum_{i=1}^n X_i \left(\frac{1}{n}\sum_{i=1}^n \left[\hat{\theta}_p \cdot X_i - \frac{X_i \mathds{1}\{X_i < \xi_p\}}{p}\right] \right) = 0
+\end{align}
 
+Note that the solution to the above first order condition gives us the desired estimator for $\theta_p$:
 \begin{align*}
-  \hat{\theta}_p = \frac{\frac{1}{np}\sum_{i} X_i \mathds{1}\{X_i<\xi_p\}}{\frac{1}{n}\sum_{i}X_i} = \frac{N}{D}
-\end{align*} 
+	\hat{\theta}_p = \frac{\frac{1}{np}\sum_{i} X_i \mathds{1}\{X_i<\xi_p\}}{\frac{1}{n}\sum_{i}X_i}
+\end{align*}
+	
+Now, 
+\begin{align*}
+	\pdv{}{\hat{\theta}_p}{\hat{\theta}_p}Q_n(\hat{\theta}_p) = \left(\frac{1}{n}\sum_{i=1}^n X_i\right)^2 \to^p (\E[X])^2 \equiv B
+\end{align*}
 
+Moreover,
+\begin{align*}
+	\sqrt{n}\pdv{}{\theta_p}Q_n(\theta_p) = \frac{1}{n}\sum_{i=1}^n X_i \left(\frac{1}{\sqrt{n}}\sum_{i=1}^n \left[\theta_p \cdot X_i - \frac{X_i \mathds{1}\{X_i < \xi_p\}}{p}\right] \right) \to^d N(0, \Omega_0)
+\end{align*}
+where
+\begin{align*}
+	\Omega_0 &= \Var\left[\frac{1}{\sqrt{n}}\sum_{i=1}^n \theta_p \cdot X_i - \frac{1}{\sqrt{n}}\sum_{i=1}^n\frac{X_i \cdot\mathds{1}\{X_i < \xi_p\}}{p} \right]\\
+	%
+	&= \frac{\theta_p^2} {n} \cdot n\Var(X) + \frac{1}{np^2}\cdot n \Var(X\cdot\mathds{1}\{X < \xi_p\}) - 2\frac{\theta_p}{np}\Cov\left(\sum_{i=1}^n X_i, \sum_{i=1}^n X_i\cdot\mathds{1}\{X_i < \xi_p\}\right) \\
+	%
+	&= \theta_p^2\Var(X) + \frac{1}{p^2} \Var(X \cdot\mathds{1}\{X < \xi_p\}) - 2\frac{\theta_p}{p}\Cov(X, X\cdot\mathds{1}(X < \xi_p))
+\end{align*}
+
+Then, Eq. (1) becomes
+\begin{align*}
+\sqrt{n}(\hat{\theta}_p - \theta_p) \to^d N\left(0, \frac{\theta_p^2\Var(X) + \frac{1}{p^2} \Var(X \cdot\mathds{1}\{X < \xi_p\}) - 2\frac{\theta_p}{p}\Cov(X, X\cdot\mathds{1}(X < \xi_p))}{(\E[X])^4}\right)
+\end{align*}
 
 
 \subsection*{(b)}
